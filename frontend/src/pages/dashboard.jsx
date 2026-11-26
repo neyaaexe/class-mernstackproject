@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useLocation } from "react-router-dom";
 function Dashboard()
 {
@@ -11,7 +12,7 @@ function Dashboard()
     return(
         <>
         <div className="text-emerald-600">Dashboard page</div>
-        <buttom type="submit" className="bg-emerald-800 rounded" onClick={user}>click</buttom>
+        <button type="submit" className="bg-emerald-800 rounded" onClick={user}>click</button>
         </>
     )
 }
