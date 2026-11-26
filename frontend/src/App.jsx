@@ -11,6 +11,7 @@ import Calendat from './pages/calendar'
 import Clients from './pages/clients'
 import Settings from './pages/settings'
 import Team from './pages/team'
+import Register from './pages/register'
 function App() {
   
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/clients" element={<Clients/>}/>
           <Route path="/settings" element={<Settings/>}/>
           <Route path="/team" element={<Team/>}/>
+          <Route path="/register" element={<Register/>}/>
         </Routes>
       </BrowserRouter>
   )
