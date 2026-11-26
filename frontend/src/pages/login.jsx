@@ -2,7 +2,7 @@ import { BrowserRouter } from "react-router-dom";
 import { useState } from "react";
 function Login()
 {
-    const [email, setEmail] = useState('')
+    const [email, setEmail] = useState(" ")
     const [password,setPassword] = useState(" ")
     const formSubmit =(e)=>
     {
@@ -24,15 +24,20 @@ function Login()
       <br/><br/>
       <button className="bg-emerald-800" onClick={()=>print()}>submit2</button>
       */}
-      
+    
+   
+      <div className="font-serif text-purple-500">LOGIN PAGE</div>
+      <br/>
       <form onSubmit={formSubmit}>
-      <input type='email' className="bg-fuchsia-600 border-4  border-emerald-500" required placeholder="enter your email" input={email} onChange={(e)=>setEmail(e.target.value)}/>
-      <br/><br/>
-      <input type='password' className="bg-fuchsia-600 border-4 border-emerald-500" required placeholder="enter your password" input={password} onChange={(e)=>setPassword(e.target.value)}/>
-      <br/><br/>
-      <button className="bg-emerald-500 border-8 border-fuchsia-500" >submit</button>
-      <br/><br/>
+        <label> EMAIL: </label>
+       <input className=" bg-fuchsia-500 border-b-cyan-900 rounded-2xl" type='email' required placeholder="please enter your email" value={email} onChnage={(e)=>{setEmail(e.target.value)}}/>
+       <br/><br/>
+       <label> PASSWORD: </label>
+       <input className=" bg-fuchsia-500 border-b-cyan-900 rounded-2xl" type='password' required placeholder="please enter your password" value={password} onChange={(e)=>{setPassword(e.target.value)}}/>
+       <br/><br/>
+       <button className="bg-emerald-800 rounded" type="submit">submit</button>
       </form>
+     
     </>
     )
 }
