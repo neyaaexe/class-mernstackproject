@@ -10,7 +10,9 @@ function Register()
     {
         console.log(data)
         alert("register success")
-        navigate("/")
+        navigate("/",{
+            state:data
+        })
     }
     return(
         <>
@@ -28,7 +30,7 @@ function Register()
                 <p>{errors.password?.message}</p>
                 <br/><br/>
                 <label> AGE: </label>
-                <input className=" bg-fuchsia-500 border-b-cyan-900 rounded-2xl" type='number' required placeholder="please enter your age" {...register("number")}/>
+                <input className=" bg-fuchsia-500 border-b-cyan-900 rounded-2xl" type='number' required placeholder="please enter your age" {...register("age")}/>
                 <p>{errors.age?.message}</p>
                 <br/><br/>
                 <button className="bg-emerald-800 rounded" type="submit" >submit</button>                

@@ -1,11 +1,10 @@
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Login()
 {
     /*
-
     const [email, setEmail] = useState(" ")
     const [password,setPassword] = useState(" ")
     const formSubmit =(e)=>
@@ -15,28 +14,40 @@ function Login()
       console.log("thambi keela erangu pa")
     }
     */
+   const location=useLocation();
    const navigate = useNavigate();
-   const[formdata,setFormdata]=useState({
+   const[logindata,setLogindata]=useState({
         username:" ",
-        password:" ",
-        email:" "
+        email:" ",
+        password:" "
    })
    const handleChange=(e)=>
    {
-    setFormdata({...formdata,[e.target.name]:e.target.value})
+    setLogindata({...logindata,[e.target.name]:e.target.value})
    }
    const formSubmit=(e)=>
    {
     e.preventDefault()
-    console.log(formdata)
-    alert("form submitted successfully")
-    navigate("/dashboard",
-      {state:formdata}
+    const registerdata = location.state
+    console.log(logindata)
+    console.log(registerdata)
+     if (
+        registerdata.name === logindata.username &&
+        registerdata.email === logindata.email &&
+        registerdata.password === logindata.password
     )
+    {
+        console.log("login successful")
+        navigate("/dashboard",{
+          state:logindata
+        })
+    }
+    else
+    {
+      console.log("invalid username and email")
+    }
    }
     return(
-
-      
      <>
      {/*
       <div className='text-emerald-600'>HELLO</div>
@@ -54,13 +65,13 @@ function Login()
       <br/>
       <form onSubmit={formSubmit}>
         <label> USERNAME: </label>
-       <input className=" bg-fuchsia-500 border-b-cyan-900 rounded-2xl" type='text' required placeholder="please enter your username" value={formdata.username} onChange={handleChange} name="username"/>
-       <br/><br/>
-       <label> PASSWORD: </label>
-       <input className=" bg-fuchsia-500 border-b-cyan-900 rounded-2xl" type='password' required placeholder="please enter your password" value={formdata.password} onChange={handleChange} name="password"/>
+       <input className=" bg-fuchsia-500 border-b-cyan-900 rounded-2xl" type='text' required placeholder="please enter your username" value={logindata.username} onChange={handleChange} name="username"/>
        <br/><br/>
        <label> EMAIL: </label>
-       <input className=" bg-fuchsia-500 border-b-cyan-900 rounded-2xl" type='email' required placeholder="please enter your email" value={formdata.email} onChange={handleChange} name="email"/>
+       <input className=" bg-fuchsia-500 border-b-cyan-900 rounded-2xl" type='email' required placeholder="please enter your email" value={logindata.email} onChange={handleChange} name="email"/>
+       <br/><br/>
+       <label> PASSWORD: </label>
+       <input className=" bg-fuchsia-500 border-b-cyan-900 rounded-2xl" type='password' required placeholder="please enter your password" value={logindata.password} onChange={handleChange} name="password"/>
        <br/><br/>
        <button className="bg-emerald-800 rounded" type="submit" >submit</button>
       </form>
