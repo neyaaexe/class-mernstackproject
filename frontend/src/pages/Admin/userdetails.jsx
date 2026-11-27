@@ -2,7 +2,7 @@ function UserDetails()
 {
     return(
         <>
-        <div className="text-emerald-900 font-extrabold font-sans">UserDetails PAGE</div>
+        <div className="text-emerald-900 font-extrabold font-sans">USER DETAILS PAGE</div>
         </>
     )
 }
