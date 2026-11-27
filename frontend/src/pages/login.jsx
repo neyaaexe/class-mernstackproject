@@ -61,21 +61,23 @@ function Login()
       <button className="bg-emerald-800" onClick={()=>print()}>submit2</button>
       */}
       
-      <div className="font-serif text-purple-500">LOGIN PAGE</div>
-      <br/>
-      <form onSubmit={formSubmit}>
-        <label> USERNAME: </label>
-       <input className=" bg-fuchsia-500 border-b-cyan-900 rounded-2xl" type='text' required placeholder="please enter your username" value={logindata.username} onChange={handleChange} name="username"/>
-       <br/><br/>
-       <label> EMAIL: </label>
-       <input className=" bg-fuchsia-500 border-b-cyan-900 rounded-2xl" type='email' required placeholder="please enter your email" value={logindata.email} onChange={handleChange} name="email"/>
-       <br/><br/>
-       <label> PASSWORD: </label>
-       <input className=" bg-fuchsia-500 border-b-cyan-900 rounded-2xl" type='password' required placeholder="please enter your password" value={logindata.password} onChange={handleChange} name="password"/>
-       <br/><br/>
-       <button className="bg-emerald-800 rounded" type="submit" >submit</button>
+    <div className="min-h-screen bg-emerald-400 flex justify-center items-center">
+    <div className="min-h-screen w-full flex justify-center items-center p-4">
+      <form onSubmit={formSubmit} className="bg-pink-300 rounded-2xl p-10 shadow-xl flex flex-col items-center gap-4 w-full max-w-md">
+         <div className="font-serif text-3xl text-center text-emerald-800">LOGIN PAGE</div>
+         <br/>
+        <label htmlFor="name" className="text-black font-serif font-bold self-start">USERNAME</label>
+        <input className="w-full bg-emerald-600 border-2 border-cyan-900 rounded-2xl p-3" type='text' required placeholder="please enter your username" value={logindata.username} onChange={handleChange} name="username"/>
+        <label className="text-black font-serif font-bold self-start">EMAIL </label>
+        <input className="w-full bg-emerald-600 border-2 border-cyan-900 rounded-2xl p-3" type='email' required placeholder="please enter your email" value={logindata.email} onChange={handleChange} name="email"/>
+        <label className="text-black font-serif font-bold self-start">PASSWORD</label>
+        <input className="w-full bg-emerald-600 border-2 border-cyan-900 rounded-2xl p-3" type='password' required placeholder="please enter your password" value={logindata.password} onChange={handleChange} name="password"/>
+        <br/>
+        <button className="text-black rounded-xl p-3 border-2 bg-green-300 hover:bg-green-400 w-full font-bold" type="submit">submit</button>
       </form>
-     
+
+    </div>
+  </div>
     </>
     )
 }
